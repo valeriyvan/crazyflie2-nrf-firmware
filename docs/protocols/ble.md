@@ -6,7 +6,7 @@ page_id: ble
 
 The current implementation of Bluetooth Low Energy (BLE) in Crazyflie
 2.X is basically a CRTP bridge. It allows to send and receive CRTP
-packets to and from the Crazyflie 2.0 main CPU, the STM32F4. This means
+packets to and from the Crazyflie 2.X main CPU, the STM32F4. This means
 that to control the Crazyflie and send/receive information the classical
 CRTP ports are used (ie. Commander, Log, Param). BLE services are
 implemented in the NRF51, therefore it is possible to implement more
@@ -37,8 +37,8 @@ implementation limitation.
 -   **Length**: 20
 -   **Properties**: write, write\_no\_response
 Allows to send CRTP packet to Crazyflie. The data format is designed to
-deal with the BLE 20Byte packets limitation VS the classical CRTP
-32Bytes packets size. The first byte is a control byte and the rest is
+deal with the BLE 20 bytes packets limitation VS the classical CRTP
+32 bytes packets size. The first byte is a control byte and the rest is
 raw data. The first byte format is:
 
 
@@ -49,7 +49,7 @@ raw data. The first byte format is:
 |  0-4     |  Length      |
 |  ---------| --------------|
 
-*PID* (packet identifier) is incremented for every CRTP packet. It permits to make sure no
+*PID* (packet identifier) is incremented for every CRTP packet. It allows to make sure no
 corrupted packet will be generated in case of packet loss.
 
 When sending a CRTP packet *Start* is 1 and *Length* is the packet
